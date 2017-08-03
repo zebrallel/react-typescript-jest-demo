@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import adv from './advanced';
+import cls from './class';
 
 class App extends Component<any, any> {
     public render() {
@@ -13,5 +14,6 @@ class App extends Component<any, any> {
 }
 
 adv();
+cls();
 
 ReactDOM.render(<App />, document.getElementById('app'));
