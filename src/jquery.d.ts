@@ -1,0 +1,1 @@
+declare let jquery : (str : string) => any

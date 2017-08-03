@@ -3,12 +3,12 @@ const path = require('path')
 const WebpackNotifierPlugin = require('webpack-notifier')
 
 module.exports = {
-  devtool: 'eval',
-  entry: [
-    'index.tsx'
-  ],
+  entry: {
+      main : 'index.tsx',
+      vendors: ['react', 'react-dom']
+  },
   output: {
-    filename: 'app.js',
+    filename: '[name].js',
     publicPath: 'dist',
     path: path.resolve('dist')
   },
@@ -35,5 +35,8 @@ module.exports = {
   },
   plugins: [
     new WebpackNotifierPlugin(),
+      new webpack.optimize.CommonsChunkPlugin({
+          name : 'vendors'
+      })
   ]
 }
