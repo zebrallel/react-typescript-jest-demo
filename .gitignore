@@ -1,2 +1,14 @@
 dist/
 ts-build/
+
+# prd staff
+node_modules/
+
+# others
+npm-debug.log
+yarn-error.log
+.DS_Store
+.cache
+.idea/
+
+
