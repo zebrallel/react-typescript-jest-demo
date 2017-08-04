@@ -33,4 +33,36 @@ export default ()=>{
     console.log(colors);
     console.log(nums['one']);
     console.log(nums.three);
+    console.log(showInfo({
+        length : 32,
+        name : '123',
+    }));
+}
+
+// 接口的合并
+interface Alarm{
+    price : number
+}
+
+interface Alarm{
+    name : string
+}
+
+// 相当于, 会做简单的合并操作
+interface Alarm{
+    price : number,
+    name : string
+}
+
+// &
+interface ILength{
+    length : number
+}
+
+interface IName{
+    name : string
+}
+
+function showInfo<T extends ILength, U extends IName>(info : T & U) : T & U{
+    return info;
 }
