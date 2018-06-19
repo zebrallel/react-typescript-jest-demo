@@ -4,7 +4,11 @@ import adv from './advanced';
 import cls from './class';
 import ge from './generic';
 
-class App extends Component<any, any> {
+interface IAppProps{
+    id: number
+}
+
+class App extends Component<IAppProps, any> {
     public render() {
         return (
             <div>
@@ -18,4 +22,17 @@ adv();
 cls();
 ge();
 
-ReactDOM.render(<App />, document.getElementById('app'));
+interface IIProps {
+    name: string
+}
+
+// 函数泛型
+interface IShow{
+    <P extends IIProps>(component: React.ComponentClass<P> | React.SFC<P>) : any
+}
+
+let show : IShow = () => {}
+
+// show(App) 这里会报错
+
+ReactDOM.render(<App id={10} />, document.getElementById('app'));
